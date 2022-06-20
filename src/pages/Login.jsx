@@ -1,31 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 function Login() {
-  const validation = ({ target }) => {
-    const regexEmail = '^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$';
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  function handleValidation() {
+    const regexEmail = /\S+@\S+\.\S+/;
     const minSenha = 7;
-  };
-  
+    if (regexEmail.test(email) && password.length >= minSenha) {
+      return false;
+    }
+    return true;
+  }
+
   return (
     <form>
       <section>
         <input
           data-testid="email-input"
           type="email"
-          value={}
+          value={ email }
           placeholder="Email"
-          onChange={ ({ target }) => (validation(target)) }
+          onChange={ ({ target }) => (setEmail(target.value)) }
         />
         <input
           data-testid="password-input"
           type="password"
+          value={ password }
           placeholder="Password"
-          onChange={ ({ target }) => (validation(target)) }
+          onChange={ ({ target }) => (setPassword(target.value)) }
         />
         <button
           onClick={ () => {} }
           data-testid="login-submit-btn"
           type="button"
-          disabled
+          disabled={ handleValidation() }
         >
           Entrar
         </button>
