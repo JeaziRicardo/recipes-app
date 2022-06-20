@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 function Login() {
+  const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   function handleValidation() {
@@ -10,6 +12,18 @@ function Login() {
       return false;
     }
     return true;
+  }
+  function setStorage() {
+    const userObj = {
+      email,
+    };
+    localStorage.setItem('mealsToken', 1);
+    localStorage.setItem('cocktailsToken', 1);
+    localStorage.setItem(
+      'user',
+      JSON.stringify(userObj),
+    );
+    history.push('/foods');
   }
 
   return (
@@ -30,7 +44,7 @@ function Login() {
           onChange={ ({ target }) => (setPassword(target.value)) }
         />
         <button
-          onClick={ () => {} }
+          onClick={ setStorage }
           data-testid="login-submit-btn"
           type="button"
           disabled={ handleValidation() }
