@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { fetchByIngredient, fetchByFirstLetter, fetchByName } from '../services/API';
 
 function SearchBar() {
   const [filter, setFilter] = useState('');
@@ -8,6 +9,24 @@ function SearchBar() {
     if (type === 'radio') setFilter(value);
     else setSearchText(value);
   };
+
+  async function setFilterRecipes() {
+    let data;
+    switch (filter) {
+    case 'ingredient':
+      data = await fetchByIngredient(searchText);
+      break;
+    case 'name':
+      data = await fetchByName(searchText);
+      break;
+    case 'first-letter':
+      data = await fetchByFirstLetter(searchText);
+      break;
+    default:
+      break;
+    }
+    console.log(data);
+  }
 
   return (
     <div>
@@ -55,6 +74,7 @@ function SearchBar() {
         type="button"
         data-testid="exec-search-btn"
         id="serch-btn"
+        onClick={ setFilterRecipes }
       >
         Search
       </button>
