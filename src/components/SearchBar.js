@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function SearchBar() {
+  const [filter, setFilter] = useState('');
+  const [searchText, setSearchText] = useState('');
+  const handleChange = ({ target }) => {
+    const { value, type } = target;
+    if (type === 'radio') setFilter(value);
+    else setSearchText(value);
+  };
+
   return (
     <div>
+      <input
+        type="text"
+        data-testid="search-input"
+        placeholder="Search"
+        onChange={ handleChange }
+        id="search"
+      />
       <label htmlFor="ingredient">
         Ingredient
         <input
@@ -10,6 +25,7 @@ function SearchBar() {
           name="search-type"
           value="ingredient"
           id="ingredient"
+          onChange={ handleChange }
           data-testid="ingredient-search-radio"
         />
       </label>
@@ -20,6 +36,7 @@ function SearchBar() {
           name="search-type"
           id="name"
           value="name"
+          onChange={ handleChange }
           data-testid="name-search-radio"
         />
       </label>
@@ -28,8 +45,9 @@ function SearchBar() {
         <input
           type="radio"
           name="search-type"
-          id="first-letter"
+          id="firstLetter"
           value="first-letter"
+          onChange={ handleChange }
           data-testid="first-letter-search-radio"
         />
       </label>

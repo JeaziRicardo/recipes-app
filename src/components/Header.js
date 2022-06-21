@@ -29,14 +29,7 @@ function Header({ title }) {
       </button>
       {
         searchBar && (
-          <div>
-            <input
-              type="text"
-              data-testid="search-input"
-              placeholder="Search"
-            />
-            <SearchBar />
-          </div>
+          <SearchBar />
         )
       }
     </header>
