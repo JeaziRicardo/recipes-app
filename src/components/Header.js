@@ -29,16 +29,13 @@ function Header({ title }) {
       </button>
       {
         searchBar && (
-          <SearchBar />
+          <SearchBar page={ history.location.pathname } />
         )
       }
     </header>
   );
 }
 Header.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }),
   title: PropTypes.string,
 }.isRequired;
 export default Header;

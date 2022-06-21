@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { fetchByIngredient, fetchByFirstLetter, fetchByName } from '../services/API';
 
-function SearchBar() {
+function SearchBar({ page }) {
   const [filter, setFilter] = useState('');
   const [searchText, setSearchText] = useState('');
   const handleChange = ({ target }) => {
@@ -14,13 +15,13 @@ function SearchBar() {
     let data;
     switch (filter) {
     case 'ingredient':
-      data = await fetchByIngredient(searchText);
+      data = await fetchByIngredient(searchText, page);
       break;
     case 'name':
-      data = await fetchByName(searchText);
+      data = await fetchByName(searchText, page);
       break;
     case 'first-letter':
-      data = await fetchByFirstLetter(searchText);
+      data = await fetchByFirstLetter(searchText, page);
       break;
     default:
       break;
@@ -83,3 +84,7 @@ function SearchBar() {
 }
 
 export default SearchBar;
+
+SearchBar.propTypes = {
+  page: PropTypes.string,
+}.isRequired;
