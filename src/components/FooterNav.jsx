@@ -26,7 +26,7 @@ function FooterNav() {
         <button
           data-testid="food-bottom-btn"
           type="button"
-          onClick={ () => (history.push('/explore')) }
+          onClick={ () => (history.push('/foods')) }
           src={ mealIcon }
           alt="mealIcon"
         />
