@@ -32,4 +32,5 @@ export const fetchByFirstLetter = async (firstLetter, page) => {
     const response = await request.json();
     return response;
   }
+  return [];
 };

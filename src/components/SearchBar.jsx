@@ -39,7 +39,9 @@ function SearchBar() {
     default:
       break;
     }
-    saveSearchResult(data);
+    if (data.length > 0) {
+      saveSearchResult(data);
+    }
   }
 
   return (
