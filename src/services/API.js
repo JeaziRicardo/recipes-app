@@ -1,6 +1,6 @@
 export const fetchByIngredient = async (ingredient, page) => {
   let URL;
-  if (page === '/foods') {
+  if (page === 'food') {
     URL = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`;
   } else {
     URL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`;
@@ -12,7 +12,7 @@ export const fetchByIngredient = async (ingredient, page) => {
 
 export const fetchByName = async (name, page) => {
   let URL;
-  if (page === '/foods') {
+  if (page === 'food') {
     URL = `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`;
   } else URL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`;
   const request = await fetch(URL);
@@ -25,7 +25,7 @@ export const fetchByFirstLetter = async (firstLetter, page) => {
     global.alert('Your search must have only 1 (one) character');
   } else {
     let URL;
-    if (page === '/foods') {
+    if (page === 'food') {
       URL = `https://www.themealdb.com/api/json/v1/1/search.php?f=${firstLetter}`;
     } else URL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${firstLetter}`;
     const request = await fetch(URL);

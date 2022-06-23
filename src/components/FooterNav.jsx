@@ -15,21 +15,27 @@ function FooterNav() {
           onClick={ () => (history.push('/drinks')) }
           src={ drinkIcon }
           alt="drinkIcon"
-        />
+        >
+          Drinks
+        </button>
         <button
           data-testid="explore-bottom-btn"
           type="button"
           onClick={ () => (history.push('/explore')) }
           src={ exploreIcon }
           alt="exploreIcon"
-        />
+        >
+          Explore
+        </button>
         <button
           data-testid="food-bottom-btn"
           type="button"
-          onClick={ () => (history.push('/explore')) }
+          onClick={ () => (history.push('/foods')) }
           src={ mealIcon }
           alt="mealIcon"
-        />
+        >
+          Foods
+        </button>
       </nav>
     </footer>
   );
