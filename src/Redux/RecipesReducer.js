@@ -5,7 +5,6 @@ const INITIAL_STATE = {
   foundRecipes: [],
   favoriteRecipes: [],
   doneRecipes: [],
-  firstRender: false,
 };
 
 export const recipesSlice = createSlice({
@@ -27,16 +26,12 @@ export const recipesSlice = createSlice({
     changeTypeForFood: (state) => {
       state.typeRecipes = 'food';
     },
-    setFirstRender: (state) => {
-      state.firstRender = true;
-    },
   },
 });
 
 export const { updateFavoriteRecipes,
   updateFoundRecipes, updateDoneRecipes,
   changeTypeForDrink, changeTypeForFood,
-  setFirstRender,
 } = recipesSlice.actions;
 
 export default recipesSlice.reducer;

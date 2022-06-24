@@ -1,0 +1,25 @@
+.cardExibtion {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.recipeCard {
+  align-items: center;
+  background-color: rgba(151, 149, 149, 0.205);
+  display: flex;
+  flex-direction: column;
+  height: 172px;
+  width: 161px;
+  left: 11px;
+  margin-top: 15px;
+  top: 171px;
+  border-radius: 6px;
+}
+
+.recipeCard img {
+  border-radius: 5px;
+  padding-top: 5px;
+  width: 80%;
+  height: 70%;
+} 

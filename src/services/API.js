@@ -7,6 +7,7 @@ export const fetchByIngredient = async (ingredient, page) => {
   }
   const request = await fetch(URL);
   const response = await request.json();
+  console.log(response);
   return response;
 };
 
@@ -17,6 +18,7 @@ export const fetchByName = async (name, page) => {
   } else URL = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`;
   const request = await fetch(URL);
   const response = await request.json();
+  console.log(response);
   return response;
 };
 
