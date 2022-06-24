@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import drinkIcon from '../images/drinkIcon.svg';
 import exploreIcon from '../images/exploreIcon.svg';
 import mealIcon from '../images/mealIcon.svg';
+import '../Footer.css';
 
 function FooterNav() {
   const history = useHistory();
@@ -16,7 +17,7 @@ function FooterNav() {
           src={ drinkIcon }
           alt="drinkIcon"
         >
-          Drinks
+          <img src={ drinkIcon } alt="drinkIcon" />
         </button>
         <button
           data-testid="explore-bottom-btn"
@@ -25,7 +26,7 @@ function FooterNav() {
           src={ exploreIcon }
           alt="exploreIcon"
         >
-          Explore
+          <img src={ exploreIcon } alt="exploreIcon" />
         </button>
         <button
           data-testid="food-bottom-btn"
@@ -34,7 +35,7 @@ function FooterNav() {
           src={ mealIcon }
           alt="mealIcon"
         >
-          Foods
+          <img src={ mealIcon } alt="mealIcon" />
         </button>
       </nav>
     </footer>

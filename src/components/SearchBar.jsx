@@ -56,7 +56,6 @@ function SearchBar() {
         id="search"
       />
       <label htmlFor="ingredient">
-        Ingredient
         <input
           type="radio"
           name="search-type"
@@ -65,9 +64,9 @@ function SearchBar() {
           onChange={ handleChange }
           data-testid="ingredient-search-radio"
         />
+        Ingredient
       </label>
       <label htmlFor="name">
-        Name
         <input
           type="radio"
           name="search-type"
@@ -76,9 +75,9 @@ function SearchBar() {
           onChange={ handleChange }
           data-testid="name-search-radio"
         />
+        Name
       </label>
       <label htmlFor="first-letter">
-        First letter
         <input
           type="radio"
           name="search-type"
@@ -87,8 +86,10 @@ function SearchBar() {
           onChange={ handleChange }
           data-testid="first-letter-search-radio"
         />
+        First letter
       </label>
       <button
+        className="searchBtn"
         type="button"
         data-testid="exec-search-btn"
         id="serch-btn"
