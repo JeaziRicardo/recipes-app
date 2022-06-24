@@ -6,6 +6,20 @@ function Explore() {
   return (
     <div>
       <Header title="Explore" />
+      <div>
+        <button
+          type="button"
+          data-testid="explore-foods"
+        >
+          Explore Foods
+        </button>
+        <button
+          type="button"
+          data-testid="explore-foods"
+        >
+          Explore Drinks
+        </button>
+      </div>
       <FooterNav />
     </div>
   );
