@@ -23,6 +23,8 @@ function SearchBar() {
       } else {
         dispatch(updateFoundRecipes(data.drinks));
       }
+    } else {
+      global.alert('Sorry, we haven\'t found any recipes for these filters.');
     }
   }
 
