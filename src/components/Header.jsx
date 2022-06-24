@@ -30,7 +30,7 @@ function Header({ title }) {
       </button>
       {
         searchBar && (
-          <SearchBar page={ history.location.pathname } />
+          <SearchBar />
         )
       }
     </header>

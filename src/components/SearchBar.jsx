@@ -1,15 +1,31 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchByIngredient, fetchByFirstLetter, fetchByName } from '../services/API';
+import { setFirstRender, updateFoundRecipes } from '../Redux/RecipesReducer';
 
-function SearchBar({ page }) {
+function SearchBar() {
+  const page = useSelector(({ recipes }) => (recipes.typeRecipes));
+  const dispatch = useDispatch();
   const [filter, setFilter] = useState('');
   const [searchText, setSearchText] = useState('');
+
   const handleChange = ({ target }) => {
     const { value, type } = target;
     if (type === 'radio') setFilter(value);
     else setSearchText(value);
   };
+
+  function saveSearchResult(data) {
+    if (data.length !== 0 && data.meals !== null && data.drinks !== null) {
+      if (page === 'food') {
+        dispatch(updateFoundRecipes(data.meals));
+      } else {
+        console.log(data);
+        dispatch(updateFoundRecipes(data.drinks));
+      }
+    }
+  }
 
   async function setFilterRecipes() {
     let data;
@@ -26,7 +42,8 @@ function SearchBar({ page }) {
     default:
       break;
     }
-    console.log(data);
+    dispatch(setFirstRender());
+    saveSearchResult(data);
   }
 
   return (
