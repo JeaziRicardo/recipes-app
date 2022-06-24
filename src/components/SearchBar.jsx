@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchByIngredient, fetchByFirstLetter, fetchByName } from '../services/API';
-import { updateFoundRecipes } from '../Redux/RecipesReducer';
+import { setFirstRender, updateFoundRecipes } from '../Redux/RecipesReducer';
 
 function SearchBar() {
   const page = useSelector(({ recipes }) => (recipes.typeRecipes));
@@ -17,10 +17,13 @@ function SearchBar() {
   };
 
   function saveSearchResult(data) {
-    if (page === 'food') {
-      dispatch(updateFoundRecipes(data.meals));
-    } else {
-      dispatch(updateFoundRecipes(data.drinks));
+    if (data.length !== 0 && data.meals !== null && data.drinks !== null) {
+      if (page === 'food') {
+        dispatch(updateFoundRecipes(data.meals));
+      } else {
+        console.log(data);
+        dispatch(updateFoundRecipes(data.drinks));
+      }
     }
   }
 
@@ -39,9 +42,8 @@ function SearchBar() {
     default:
       break;
     }
-    if (data.length > 0) {
-      saveSearchResult(data);
-    }
+    dispatch(setFirstRender());
+    saveSearchResult(data);
   }
 
   return (
