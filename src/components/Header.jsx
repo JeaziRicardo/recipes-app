@@ -9,6 +9,9 @@ import '../Styles/Header.css';
 function Header({ title }) {
   const history = useHistory();
   const [searchBar, setSearchBar] = useState(false);
+  const routers = ['/foods', '/drinks', '/explore/foods/nationalities'];
+  const path = history.location.pathname;
+
   return (
     <header>
       <button
@@ -20,14 +23,16 @@ function Header({ title }) {
         <img src={ profileIcon } alt="profileIcon" />
       </button>
       <h1 data-testid="page-title">{ title }</h1>
-      <button
-        data-testid="search-top-btn"
-        type="button"
-        onClick={ () => setSearchBar(!searchBar) }
-        src={ searchIcon }
-      >
-        <img src={ searchIcon } alt="searchIcon" />
-      </button>
+      { routers.includes(path) && (
+        <button
+          data-testid="search-top-btn"
+          type="button"
+          onClick={ () => setSearchBar(!searchBar) }
+          src={ searchIcon }
+        >
+          <img src={ searchIcon } alt="searchIcon" />
+        </button>
+      ) }
       {
         searchBar && (
           <SearchBar />
