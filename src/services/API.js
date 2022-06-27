@@ -36,3 +36,10 @@ export const fetchByFirstLetter = async (firstLetter, page) => {
   }
   return [];
 };
+
+export const fetchByAllIngredient = async () => {
+  const URL = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list';
+  const request = await fetch(URL);
+  const response = await request.json();
+  return response;
+};
