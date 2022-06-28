@@ -65,6 +65,12 @@ export const getCategoryRecipes = async (page, category) => {
     URL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
   } else {
     URL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`;
+  }
+  const request = await fetch(URL);
+  const response = await request.json();
+  return response;
+};
+
 export const fetchByAllIngredient = async (page) => {
   let URL;
   if (page === '/explore/foods/ingredients') {

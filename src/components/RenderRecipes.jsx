@@ -9,8 +9,8 @@ function RenderRecipes() {
   const selectedCategory = useSelector(({ recipes }) => recipes.selectedCategory);
 
   let id;
-  // if (type === 'food' && foundRecipes.length > 0) id = foundRecipes[0].idMeal;
-  // else if (foundRecipes.length > 0) id = foundRecipes[0].idDrink;
+  if (type === 'food' && foundRecipes.length > 0) id = foundRecipes[0].idMeal;
+  else if (foundRecipes.length > 0) id = foundRecipes[0].idDrink;
 
   const history = useHistory();
   const path = history.location.pathname;
