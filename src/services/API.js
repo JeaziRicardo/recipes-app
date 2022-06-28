@@ -35,6 +35,42 @@ export const fetchByFirstLetter = async (firstLetter, page) => {
   return [];
 };
 
+export const emptyFetch = async (page) => {
+  let URL;
+  if (page === 'food') {
+    URL = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+  } else {
+    URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
+  }
+  const request = await fetch(URL);
+  const response = await request.json();
+  return response;
+};
+
+export const fetchCategories = async (page) => {
+  let URL;
+  if (page === 'food') {
+    URL = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
+  } else {
+    URL = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list';
+  }
+  const request = await fetch(URL);
+  const response = await request.json();
+  return response;
+};
+
+export const getCategoryRecipes = async (page, category) => {
+  let URL;
+  if (page === 'food') {
+    URL = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
+  } else {
+    URL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`;
+  }
+  const request = await fetch(URL);
+  const response = await request.json();
+  return response;
+};
+
 export const fetchByAllIngredient = async (page) => {
   let URL;
   if (page === '/explore/foods/ingredients') {
