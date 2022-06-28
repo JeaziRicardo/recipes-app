@@ -22,13 +22,14 @@ function IngredientCard() {
   }, [pathname]);
 
   return (
-    <section>
+    <section className="cardExibtion">
 
       { pathname === '/explore/drinks/ingredients'
         && (
           ingredients.map(({ strIngredient1 }, index) => index <= NUN_LENGTH && (
             <section
               key={ index }
+              className="recipeCard"
               data-testid={ `${index}-ingredient-card` }
             >
               <img
@@ -49,6 +50,7 @@ function IngredientCard() {
           ingredients.map(({ strIngredient }, index) => index <= NUN_LENGTH && (
             <section
               key={ index }
+              className="recipeCard"
               data-testid={ `${index}-ingredient-card` }
             >
               <img
