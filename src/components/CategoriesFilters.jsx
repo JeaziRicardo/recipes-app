@@ -25,7 +25,7 @@ function CategoriesFilter() {
   async function setCategoryFilter({ target: { value } }) {
     let data;
     if (page === 'food') {
-      if (selectedCategory === value) {
+      if (selectedCategory === value || value === 'All') {
         data = await emptyFetch('food');
         dispatch(setSelectedCategory(''));
       } else {
@@ -34,7 +34,7 @@ function CategoriesFilter() {
       }
       dispatch(updateFoundRecipes(data.meals));
     } else {
-      if (selectedCategory === value) {
+      if (selectedCategory === value || value === 'All') {
         data = await emptyFetch('drink');
         dispatch(setSelectedCategory(''));
       } else {
@@ -47,6 +47,14 @@ function CategoriesFilter() {
   const NUM = 5;
   return (
     <section className="categories-container">
+      <button
+        type="button"
+        value="All"
+        data-testid="All-category-filter"
+        onClick={ setCategoryFilter }
+      >
+        All
+      </button>
       {categories.map((category, index) => index < NUM && (
         <button
           type="button"
