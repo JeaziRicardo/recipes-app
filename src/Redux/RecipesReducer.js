@@ -5,6 +5,8 @@ const INITIAL_STATE = {
   foundRecipes: [],
   favoriteRecipes: [],
   doneRecipes: [],
+  categoriesFilters: [],
+  selectedCategory: '',
 };
 
 export const recipesSlice = createSlice({
@@ -26,12 +28,19 @@ export const recipesSlice = createSlice({
     changeTypeForFood: (state) => {
       state.typeRecipes = 'food';
     },
+    setCategoriesFilters: (state, action) => {
+      state.categoriesFilters = [...action.payload];
+    },
+    setSelectedCategory: (state, action) => {
+      state.selectedCategory = action.payload;
+    },
   },
 });
 
 export const { updateFavoriteRecipes,
   updateFoundRecipes, updateDoneRecipes,
   changeTypeForDrink, changeTypeForFood,
+  setCategoriesFilters, setSelectedCategory,
 } = recipesSlice.actions;
 
 export default recipesSlice.reducer;

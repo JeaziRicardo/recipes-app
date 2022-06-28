@@ -6,6 +6,7 @@ import '../Styles/RenderRecipes.css';
 function RenderRecipes() {
   const foundRecipes = useSelector(({ recipes }) => recipes.foundRecipes);
   const type = useSelector(({ recipes }) => recipes.typeRecipes);
+  const selectedCategory = useSelector(({ recipes }) => recipes.selectedCategory);
 
   let id;
   if (type === 'food' && foundRecipes.length > 0) id = foundRecipes[0].idMeal;
@@ -16,8 +17,9 @@ function RenderRecipes() {
   const NUM = 11;
   return (
     <section className="cardExibtion">
-      {foundRecipes.length === 1 && history.push(`${path}/${id}`)}
-      {foundRecipes.length > 1 && foundRecipes.map((recipe, index) => index <= NUM
+      {foundRecipes.length === 1 && selectedCategory === ''
+      && history.push(`${path}/${id}`)}
+      {foundRecipes.length > 0 && foundRecipes.map((recipe, index) => index <= NUM
       && (
         // <Link to={ }>
         <div
