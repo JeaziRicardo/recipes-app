@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchByIngredient, fetchByFirstLetter, fetchByName } from '../services/API';
 import { updateFoundRecipes } from '../Redux/RecipesReducer';
+import '../Styles/SearchBar.css';
 
 function SearchBar() {
   const page = useSelector(({ recipes }) => (recipes.typeRecipes));
@@ -47,7 +48,7 @@ function SearchBar() {
   }
 
   return (
-    <div>
+    <div className="search-bar">
       <input
         type="text"
         data-testid="search-input"
