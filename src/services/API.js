@@ -82,3 +82,15 @@ export const fetchByAllIngredient = async (page) => {
   const response = await request.json();
   return response;
 };
+
+export const fetchRandom = async (page) => {
+  let URL;
+  if (page === '/explore/foods') {
+    URL = 'https://www.themealdb.com/api/json/v1/1/random.php';
+  } else {
+    URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+  }
+  const request = await fetch(URL);
+  const response = await request.json();
+  return response;
+};
