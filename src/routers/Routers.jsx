@@ -16,6 +16,7 @@ import FoodsDetails from '../pages/Food/FoodDetails';
 import DrinkDetails from '../pages/Drink/DrinkDetails';
 import FoodProgress from '../pages/Food/FoodInProgress';
 import DrinkProgress from '../pages/Drink/DrinkInProgress';
+import NotFound from '../pages/NotFound';
 
 function Routers() {
   return (
@@ -36,6 +37,7 @@ function Routers() {
       <Route exact path="/explore/foods/nationalities" component={ ExpFoodNational } />
       <Route path="/done-recipes" component={ DoneRecipes } />
       <Route path="/favorite-recipes" component={ FavoriteRecipes } />
+      <Route path="*" component={ NotFound } />
     </Switch>
   );
 }
