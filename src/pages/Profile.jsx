@@ -10,6 +10,11 @@ function Profile() {
   const history = useHistory();
   function clearUser() {
     localStorage.removeItem('user');
+    localStorage.removeItem('mealsToken');
+    localStorage.removeItem('cocktailsToken');
+    localStorage.removeItem('doneRecipes');
+    localStorage.removeItem('favoriteRecipes');
+    localStorage.removeItem('inProgressRecipes');
     history.push('/');
   }
 
