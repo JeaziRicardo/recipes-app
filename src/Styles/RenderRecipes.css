@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin-bottom: 60px;
 }
 
 .recipeCard {
@@ -22,4 +23,9 @@
   height: 70%;
   padding-top: 5px;
   width: 80%;
+}
+
+a {
+  color: rgb(63, 63, 63);
+  text-decoration: none;
 }

@@ -14,25 +14,27 @@ function Header({ title }) {
 
   return (
     <header>
-      <button
-        data-testid="profile-top-btn"
-        type="button"
-        onClick={ () => history.push('/profile') }
-        src={ profileIcon }
-      >
-        <img src={ profileIcon } alt="profileIcon" />
-      </button>
-      <h1 data-testid="page-title">{ title }</h1>
-      { routers.includes(path) && (
+      <section className="main-content">
         <button
-          data-testid="search-top-btn"
+          data-testid="profile-top-btn"
           type="button"
-          onClick={ () => setSearchBar(!searchBar) }
-          src={ searchIcon }
+          onClick={ () => history.push('/profile') }
+          src={ profileIcon }
         >
-          <img src={ searchIcon } alt="searchIcon" />
+          <img src={ profileIcon } alt="profileIcon" />
         </button>
-      ) }
+        <h1 data-testid="page-title">{ title }</h1>
+        { routers.includes(path) && (
+          <button
+            data-testid="search-top-btn"
+            type="button"
+            onClick={ () => setSearchBar(!searchBar) }
+            src={ searchIcon }
+          >
+            <img src={ searchIcon } alt="searchIcon" />
+          </button>
+        ) }
+      </section>
       {
         searchBar && (
           <SearchBar />
