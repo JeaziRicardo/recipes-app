@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { emptyFetch, fetchAllNationalities, fetchByNationalities } from '../services/API';
+import {  fetchAllNationalities, fetchByNationalities } from '../services/API';
 
 function DropDown() {
   const MAX_LENGTH = 11;
@@ -17,13 +17,9 @@ function DropDown() {
     async function fetchData() {
       const { meals } = await fetchAllNationalities();
       setNationalities(meals);
-      if (option === 'All') {
-        const allRecipes = await emptyFetch('food');
-        setRecipes(allRecipes.meals);
-      }
     }
     fetchData();
-  }, [option]);
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -39,7 +35,12 @@ function DropDown() {
         data-testid="explore-by-nationality-dropdown"
         onChange={ handleChange }
       >
-        <option value="All">All</option>
+        <option
+          value="All"
+          data-testid="All-option"
+        >
+          All
+        </option>
         { nationalities.map(({ strArea }) => (
           <option
             key={ strArea }
