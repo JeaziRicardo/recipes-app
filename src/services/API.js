@@ -91,7 +91,7 @@ export const fetchAllNationalities = async () => {
 };
 
 export const fetchByNationalities = async (nationality) => {
-  const URL = `www.themealdb.com/api/json/v1/1/filter.php?a=${nationality}`;
+  const URL = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${nationality}`;
   const request = await fetch(URL);
   const response = await request.json();
   return response;
