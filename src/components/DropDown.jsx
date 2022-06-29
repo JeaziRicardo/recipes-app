@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {  fetchAllNationalities, fetchByNationalities } from '../services/API';
+import { fetchAllNationalities, fetchByNationalities } from '../services/API';
 
 function DropDown() {
   const MAX_LENGTH = 11;
@@ -52,22 +52,23 @@ function DropDown() {
         )) }
       </select>
       <section className="cardExibtion">
-        { recipes?.map(({ strMeal, strMealThumb, idMeal }, index) => index <= MAX_LENGTH && (
-          <section
-            key={ index }
-            className="recipeCard"
-            data-testid={ `${index}-recipe-card` }
-          >
-            <Link to={ `/foods/${idMeal}` }>
-              <img
-                data-testid={ `${index}-card-img` }
-                src={ strMealThumb }
-                alt={ strMeal }
-              />
-              <h3 data-testid={ `${index}-card-name` }>{ strMeal }</h3>
-            </Link>
-          </section>
-        )) }
+        { recipes
+          .map(({ strMeal, strMealThumb, idMeal }, index) => index <= MAX_LENGTH && (
+            <section
+              key={ index }
+              className="recipeCard"
+              data-testid={ `${index}-recipe-card` }
+            >
+              <Link to={ `/foods/${idMeal}` }>
+                <img
+                  data-testid={ `${index}-card-img` }
+                  src={ strMealThumb }
+                  alt={ strMeal }
+                />
+                <h3 data-testid={ `${index}-card-name` }>{ strMeal }</h3>
+              </Link>
+            </section>
+          )) }
       </section>
     </section>
   );
