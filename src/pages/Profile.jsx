@@ -4,9 +4,9 @@ import FooterNav from '../components/FooterNav';
 import Header from '../components/Header';
 
 function Profile() {
-  const email = localStorage.getItem(
+  const { email } = JSON.parse(localStorage.getItem(
     'user',
-  );
+  ));
   const history = useHistory();
   function clearUser() {
     localStorage.removeItem('user');
