@@ -82,3 +82,15 @@ export const fetchByAllIngredient = async (page) => {
   const response = await request.json();
   return response;
 };
+
+export const fetchRecipesInfo = async (id, page) => {
+  let URL;
+  if (page === 'food') {
+    URL = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;
+  } else {
+    URL = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`;
+  }
+  const request = await fetch(URL);
+  const response = await request.json();
+  return response;
+};
