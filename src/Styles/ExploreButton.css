@@ -1,0 +1,25 @@
+.ExploreBtn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.ExploreBtn button {
+  background-color: #f5bb0c;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  margin-top: 10px;
+  padding: 5px 33px;
+}
+
+.ExploreBtn select {
+  background-color: #f5bb0c;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  margin-top: 10px;
+  padding: 5px;
+  width: 90%;
+}

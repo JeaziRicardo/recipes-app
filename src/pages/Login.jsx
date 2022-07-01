@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import '../Styles/Login.css';
 
 function Login() {
   const history = useHistory();
@@ -27,8 +28,8 @@ function Login() {
   }
 
   return (
-    <form>
-      <section>
+    <form className="loginForm">
+      <section className="loginSec">
         <input
           data-testid="email-input"
           type="email"

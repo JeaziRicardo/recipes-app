@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchAllNationalities, fetchByNationalities } from '../services/API';
+import '../Styles/ExploreButton.css';
 
 function DropDown() {
   const MAX_LENGTH = 11;
@@ -31,26 +32,28 @@ function DropDown() {
 
   return (
     <section>
-      <select
-        data-testid="explore-by-nationality-dropdown"
-        onChange={ handleChange }
-      >
-        <option
-          value="All"
-          data-testid="All-option"
+      <section className="ExploreBtn">
+        <select
+          data-testid="explore-by-nationality-dropdown"
+          onChange={ handleChange }
         >
-          All
-        </option>
-        { nationalities.map(({ strArea }) => (
           <option
-            key={ strArea }
-            value={ strArea }
-            data-testid={ `${strArea}-option` }
+            value="All"
+            data-testid="All-option"
           >
-            { strArea }
+            All
           </option>
-        )) }
-      </select>
+          { nationalities.map(({ strArea }) => (
+            <option
+              key={ strArea }
+              value={ strArea }
+              data-testid={ `${strArea}-option` }
+            >
+              { strArea }
+            </option>
+          )) }
+        </select>
+      </section>
       <section className="cardExibtion">
         { recipes
           .map(({ strMeal, strMealThumb, idMeal }, index) => index <= MAX_LENGTH && (

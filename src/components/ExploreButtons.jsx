@@ -18,7 +18,7 @@ function ExploreButtons() {
   };
 
   return (
-    <div>
+    <div className="ExploreBtn">
       <button
         type="button"
         data-testid="explore-by-ingredient"
