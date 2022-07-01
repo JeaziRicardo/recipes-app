@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+.recomendation-wrapper {
+  width: 80vw;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.recomendation-card-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.recomendation-card {
+  flex: none;
+  width: 45%;
+  height: 100%;
+  scroll-snap-align: start;
+}
+
+.recomendation-card  img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
