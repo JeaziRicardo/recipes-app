@@ -1,0 +1,15 @@
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.categories-container button {
+  background-color: #f5bb0c;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  margin-top: 5px;
+  padding: 5px 10px;
+  width: 30%;
+}

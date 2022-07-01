@@ -7,7 +7,7 @@
 
 .recipeCard {
   align-items: center;
-  background-color: rgba(151, 149, 149, 0.205);
+  background-color: #ed5311;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,12 @@
   width: 80%;
 }
 
-a {
-  color: rgb(63, 63, 63);
+.cardExibtion a {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 172px;
   text-decoration: none;
+  width: 161px;
 }

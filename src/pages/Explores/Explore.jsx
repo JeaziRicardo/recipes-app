@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import FooterNav from '../../components/FooterNav';
 import Header from '../../components/Header';
+import '../../Styles/ExploreButton.css';
 
 function Explore() {
   const history = useHistory();
@@ -9,7 +10,7 @@ function Explore() {
   return (
     <div>
       <Header title="Explore" />
-      <div>
+      <div className="ExploreBtn">
         <button
           type="button"
           data-testid="explore-foods"

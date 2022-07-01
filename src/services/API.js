@@ -94,3 +94,34 @@ export const fetchRecipesInfo = async (id, page) => {
   const response = await request.json();
   return response;
 };
+
+export const fetchAllNationalities = async () => {
+  const URL = 'https://www.themealdb.com/api/json/v1/1/list.php?a=list';
+  const request = await fetch(URL);
+  const response = await request.json();
+  return response;
+};
+
+export const fetchByNationalities = async (nationality) => {
+  let URL;
+  if (nationality === 'All') {
+    URL = 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
+  } else {
+    URL = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${nationality}`;
+  }
+  const request = await fetch(URL);
+  const response = await request.json();
+  return response;
+};
+
+export const fetchRandom = async (page) => {
+  let URL;
+  if (page === '/explore/foods') {
+    URL = 'https://www.themealdb.com/api/json/v1/1/random.php';
+  } else {
+    URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+  }
+  const request = await fetch(URL);
+  const response = await request.json();
+  return response;
+};

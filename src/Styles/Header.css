@@ -1,12 +1,13 @@
 header button {
+  background-color: #f79443;
   border: none;
   height: 50px;
   width: 50px;
 }
 
 header h1 {
-  height: 50px;
-  margin: 10px;
+  color: white;
+  text-align: center;
 }
 
 header label {
@@ -34,7 +35,7 @@ header [ type = 'text' ] {
 
 .main-content {
   align-items: center;
-  background-color: #e5e5e5;
+  background-color: #ed5311;
   display: flex;
   flex-wrap: wrap;
   height: 70px;

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCategoriesFilters, setSelectedCategory,
   updateFoundRecipes } from '../Redux/RecipesReducer';
 import { emptyFetch, fetchCategories, getCategoryRecipes } from '../services/API';
+import '../Styles/CategoriesFilter.css';
 
 function CategoriesFilter() {
   const page = useSelector(({ recipes }) => recipes.typeRecipes);
