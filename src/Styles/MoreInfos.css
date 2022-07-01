@@ -9,8 +9,8 @@
 }
 
 .recomendation-card-container {
-  -webkit-overflow-scrolling: touch;
   display: flex;
+  -webkit-overflow-scrolling: touch;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
 }
@@ -18,11 +18,11 @@
 .recomendation-card {
   flex: none;
   height: 100%;
-  width: 60%;
   scroll-snap-align: start;
+  width: 60%;
 }
 
-.recomendation-card  img{
+.recomendation-card img {
   height: 100%;
   object-fit: cover;
   width: 100%;
