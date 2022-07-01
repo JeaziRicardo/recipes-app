@@ -1,30 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+// import clipboard from 'clipboard-copy';
 // import blackHeartIcon from '../images/blackHeartIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import shareIcon from '../images/shareIcon.svg';
 
 function RecipesInfos() {
   const history = useHistory();
+  const { location } = history;
+  const [linkCopy, setLinkCopy] = useState(false);
   const recipe = useSelector(({ recipes }) => recipes.recipeInfo);
   const recipeArr = Object.entries(recipe);
   const ingredientsArr = recipeArr.filter((recipeKey) => recipeKey[0]
     .includes('strIngredient'));
   const measureArr = recipeArr.filter((recipeKey) => recipeKey[0]
     .includes('strMeasure'));
+  function copyRecipeLink() {
+    navigator.clipboard.writeText(`http://localhost:3000${location.pathname}`);
+    setLinkCopy(true);
+  }
   return (
     <section className="recipe-info">
       <header>
         <img
           data-testid="recipe-photo"
           src={ recipe.strMealThumb || recipe.strDrinkThumb }
-          alt={ recipe.strMeal }
+          alt={ recipe.strMeal || recipe.strDrink }
         />
         <h3
           data-testid="recipe-title"
         >
-          {recipe.strMeal}
+          { recipe.strMeal || recipe.strDrink }
         </h3>
         <button
           type="button"
@@ -38,10 +45,11 @@ function RecipesInfos() {
           type="button"
           data-testid="share-btn"
           src={ shareIcon }
-        // onClick={ Função de compartilhar Receita}
+          onClick={ copyRecipeLink }
         >
           <img src={ shareIcon } alt="ShareIcon" />
         </button>
+        {linkCopy ? <span>Link copied!</span> : <span />}
         <h4
           data-testid="recipe-category"
         >

@@ -21,6 +21,10 @@ function MoreInfos() {
   }, [history]);
   const SIX = 6;
 
+  function redirectInProgress() {
+    history.push(`${history.location.pathname}/in-progress`);
+  }
+
   return (
     <section className="more-details-container">
       {history.location.pathname
@@ -63,13 +67,16 @@ function MoreInfos() {
             ))}
         </div>
       </section>
-      <button
-        type="button"
-        data-testid="start-recipe-btn"
-        className="recipe-btn"
-      >
-        Start Recipe
-      </button>
+      <div className="btn-container">
+        <button
+          type="button"
+          data-testid="start-recipe-btn"
+          className="recipe-btn"
+          onClick={ redirectInProgress }
+        >
+          Start Recipe
+        </button>
+      </div>
     </section>
   );
 }
