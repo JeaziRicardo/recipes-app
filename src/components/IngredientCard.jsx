@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { fetchByAllIngredient } from '../services/API';
+import { setIngredient } from '../Redux/RecipesReducer';
 
 function IngredientCard() {
   const MAX_LENGTH = 11;
+  const dispatch = useDispatch();
   const { location: { pathname } } = useHistory();
   const [ingredients, setIngredients] = useState([]);
 
@@ -32,7 +35,10 @@ function IngredientCard() {
               className="recipeCard"
               data-testid={ `${index}-ingredient-card` }
             >
-              <Link to="/drinks">
+              <Link
+                to="/drinks"
+                onClick={ () => dispatch(setIngredient(strIngredient1)) }
+              >
                 <img
                   data-testid={ `${index}-card-img` }
                   src={ `https://www.thecocktaildb.com/images/ingredients/${strIngredient1}-Small.png` }
@@ -55,7 +61,10 @@ function IngredientCard() {
               className="recipeCard"
               data-testid={ `${index}-ingredient-card` }
             >
-              <Link to="/foods">
+              <Link
+                to="/foods"
+                onClick={ () => dispatch(setIngredient(strIngredient)) }
+              >
                 <img
                   data-testid={ `${index}-card-img` }
                   src={ `https://www.themealdb.com/images/ingredients/${strIngredient}-Small.png` }

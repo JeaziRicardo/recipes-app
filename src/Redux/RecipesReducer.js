@@ -7,6 +7,7 @@ const INITIAL_STATE = {
   doneRecipes: [],
   categoriesFilters: [],
   selectedCategory: '',
+  ingredient: '',
 };
 
 export const recipesSlice = createSlice({
@@ -34,6 +35,9 @@ export const recipesSlice = createSlice({
     setSelectedCategory: (state, action) => {
       state.selectedCategory = action.payload;
     },
+    setIngredient: (state, action) => {
+      state.ingredient = action.payload;
+    },
   },
 });
 
@@ -41,6 +45,7 @@ export const { updateFavoriteRecipes,
   updateFoundRecipes, updateDoneRecipes,
   changeTypeForDrink, changeTypeForFood,
   setCategoriesFilters, setSelectedCategory,
+  setIngredient,
 } = recipesSlice.actions;
 
 export default recipesSlice.reducer;
