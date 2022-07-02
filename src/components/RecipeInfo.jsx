@@ -35,10 +35,10 @@ function RecipesInfos() {
   }
 
   function updateRecipesInProgress() {
-    const inProgressRecipes = {
-      cocktails: {},
-      meals: {},
-    };
+    // const inProgressRecipes = {
+    //   cocktails: {},
+    //   meals: {},
+    // };
   }
 
   return (
