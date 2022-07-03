@@ -15,8 +15,10 @@ function RecipesInfos() {
 
   const recipe = useSelector(({ recipes }) => recipes.recipeInfo);
   const recipeArr = Object.entries(recipe);
+
   const ingredientsArr = recipeArr.filter((recipeKey) => recipeKey[0]
     .includes('strIngredient'));
+
   const measureArr = recipeArr.filter((recipeKey) => recipeKey[0]
     .includes('strMeasure'));
 
@@ -32,13 +34,6 @@ function RecipesInfos() {
     } else {
       setChecked([...checked, target.value]);
     }
-  }
-
-  function updateRecipesInProgress() {
-    // const inProgressRecipes = {
-    //   cocktails: {},
-    //   meals: {},
-    // };
   }
 
   return (
@@ -93,7 +88,6 @@ function RecipesInfos() {
                   type="checkbox"
                   id={ index }
                   value={ ingredient[1] }
-                  onClick={ updateRecipesInProgress }
                   onChange={ ({ target }) => hadleChange(target) }
                 />
                 <li
