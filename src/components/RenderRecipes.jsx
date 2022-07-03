@@ -32,14 +32,14 @@ function RenderRecipes() {
           >
             <img
               data-testid={ `${index}-card-img` }
-              src={ type === 'food' ? recipe.strMealThumb : recipe.strDrinkThumb }
-              alt={ type === 'food' ? recipe.strMeal : recipe.strDrink }
+              src={ recipe.strMealThumb || recipe.strDrinkThumb }
+              alt={ recipe.strMeal || recipe.strDrink }
 
             />
             <h5
               data-testid={ `${index}-card-name` }
             >
-              {type === 'food' ? recipe.strMeal : recipe.strDrink}
+              { recipe.strMeal || recipe.strDrink}
             </h5>
 
           </div>

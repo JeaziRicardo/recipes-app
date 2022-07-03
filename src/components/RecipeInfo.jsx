@@ -11,6 +11,7 @@ function RecipesInfos() {
   const history = useHistory();
   const { location } = history;
   const [checked, setChecked] = useState([]);
+  const [ableButton, setAbleButton] = useState(true);
   const [linkCopy, setLinkCopy] = useState(false);
 
   const recipe = useSelector(({ recipes }) => recipes.recipeInfo);
@@ -18,6 +19,10 @@ function RecipesInfos() {
 
   const ingredientsArr = recipeArr.filter((recipeKey) => recipeKey[0]
     .includes('strIngredient'));
+
+  const filtredIngredients = ingredientsArr
+    .filter((ingredient) => ingredient[1] !== null
+  && ingredient[1].trim() !== '');
 
   const measureArr = recipeArr.filter((recipeKey) => recipeKey[0]
     .includes('strMeasure'));
@@ -28,12 +33,17 @@ function RecipesInfos() {
   }
 
   function hadleChange(target) {
-    console.log(target.value);
-    if (checked.includes(target.value)) {
-      setChecked(checked.filter((check) => check !== target.value));
-    } else {
-      setChecked([...checked, target.value]);
-    }
+    const checkeds = (checked.includes(target.value) ? (
+      checked.filter((check) => check !== target.value)
+    ) : (
+      [...checked, target.value]
+    ));
+    setChecked(checkeds);
+    setAbleButton(filtredIngredients.length !== checkeds.length);
+  }
+
+  function goToDoneRecipes() {
+    history.push('/done-recipes');
   }
 
   return (
@@ -76,9 +86,7 @@ function RecipesInfos() {
       <section className="ingredients-section">
         {location.pathname.includes('in-progress') ? (
           <ul>
-            {ingredientsArr.map((ingredient, index) => ingredient[1] !== null
-              && ingredient[1].trim() !== ''
-            && (
+            {filtredIngredients.map((ingredient, index) => (
               <label
                 htmlFor={ index }
                 key={ index }
@@ -100,16 +108,14 @@ function RecipesInfos() {
           </ul>
         ) : (
           <ul>
-            {ingredientsArr.map((ingredient, index) => ingredient[1] !== null
-                && ingredient[1].trim() !== ''
-              && (
-                <li
-                  key={ index }
-                  data-testid={ `${index}-ingredient-name-and-measure` }
-                >
-                  {`${ingredient[1]} - ${measureArr[index][1]}`}
-                </li>
-              ))}
+            {filtredIngredients.map((ingredient, index) => (
+              <li
+                key={ index }
+                data-testid={ `${index}-ingredient-name-and-measure` }
+              >
+                {`${ingredient[1]} - ${measureArr[index][1]}`}
+              </li>
+            ))}
           </ul>
         ) }
       </section>
@@ -117,6 +123,20 @@ function RecipesInfos() {
         <p data-testid="instructions">
           {recipe.strInstructions}
         </p>
+      </div>
+      <div>
+        {history.location.pathname.includes('in-progress') ? (
+          <button
+            data-testid="finish-recipe-btn"
+            type="button"
+            onClick={ goToDoneRecipes }
+            disabled={ ableButton }
+          >
+            Finish Recipe
+          </button>
+        ) : (
+          <div />
+        )}
       </div>
     </section>
   );

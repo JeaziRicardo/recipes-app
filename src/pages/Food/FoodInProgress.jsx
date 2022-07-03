@@ -18,12 +18,6 @@ function FoodsInProgress() {
   return (
     <div>
       <RecipesInfos />
-      <button
-        data-testid="finish-recipe-btn"
-        type="button"
-      >
-        Finish Recipe
-      </button>
     </div>
   );
 }
