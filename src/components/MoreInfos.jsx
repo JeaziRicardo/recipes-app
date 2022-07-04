@@ -38,7 +38,9 @@ function MoreInfos() {
               title={ recipe.strTags }
               width="300"
               height="160"
-              src={ recipe.strYoutube.replace('watch?v=', 'embed/') }
+              src={ recipe.strYoutube
+                ? recipe.strYoutube.replace('watch?v=', 'embed/')
+                : 'a' }
               frameBorder="0"
               allow="accelerometer;encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

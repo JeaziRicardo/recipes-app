@@ -32,7 +32,7 @@ const setFavoritesRecipes = (recipe) => {
   return 'black';
 };
 
-function verifyFavoriteRecipe(recipe) {
+const verifyFavoriteRecipe = (recipe) => {
   const getFavorites = localStorage.getItem(FAVORITES);
   const favorites = JSON.parse(getFavorites);
   if (favorites) {
@@ -42,8 +42,8 @@ function verifyFavoriteRecipe(recipe) {
     if (isFavoriteRecipe) {
       return 'black';
     }
-    return 'black';
+    return 'white';
   }
-}
+};
 
 export { setFavoritesRecipes, verifyFavoriteRecipe };
