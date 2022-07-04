@@ -1,0 +1,36 @@
+.cardExibtion {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 60px;
+}
+
+.recipeCard {
+  align-items: center;
+  background-color: #ed5311;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  height: 172px;
+  left: 11px;
+  margin-top: 15px;
+  top: 171px;
+  width: 161px;
+}
+
+.recipeCard img {
+  border-radius: 5px;
+  height: 70%;
+  padding-top: 5px;
+  width: 80%;
+}
+
+.cardExibtion a {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 172px;
+  text-decoration: none;
+  width: 161px;
+}

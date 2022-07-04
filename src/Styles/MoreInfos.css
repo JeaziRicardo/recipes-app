@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+.recomendation-wrapper {
+  margin: auto;
+  margin-top: 30px;
+  width: 80vw;
+}
+
+.recomendation-card-container {
+  display: flex;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.recomendation-card {
+  flex: none;
+  height: 100%;
+  scroll-snap-align: start;
+  width: 60%;
+}
+
+.recomendation-card img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.btn-container {
+  align-items: center;
+  display: flex;
+}
+
+.btn-container button {
+  bottom: 0;
+  padding: 30px , 10px;
+  position: fixed;
+  text-align: center;
+  width: 10%;
+}

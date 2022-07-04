@@ -1,0 +1,7 @@
+.checked {
+  text-decoration: line-through;
+}
+
+li {
+  list-style-type: none;
+}
