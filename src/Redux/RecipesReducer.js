@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 const INITIAL_STATE = {
   typeRecipes: '',
   foundRecipes: [],
-  favoriteRecipes: [],
   doneRecipes: [],
   categoriesFilters: [],
   selectedCategory: '',
@@ -17,9 +16,6 @@ export const recipesSlice = createSlice({
   reducers: {
     updateFoundRecipes: (state, action) => {
       state.foundRecipes = [...action.payload];
-    },
-    updateFavoriteRecipes: (state, action) => {
-      state.favoriteRecipes = [...action.payload];
     },
     updateDoneRecipes: (state, action) => {
       state.doneRecipes = [...action.payload];
@@ -45,7 +41,7 @@ export const recipesSlice = createSlice({
   },
 });
 
-export const { updateFavoriteRecipes,
+export const {
   updateFoundRecipes, updateDoneRecipes,
   changeTypeForDrink, changeTypeForFood,
   setCategoriesFilters, setSelectedCategory,

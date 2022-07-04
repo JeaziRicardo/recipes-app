@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-// import clipboard from 'clipboard-copy';
-// import blackHeartIcon from '../images/blackHeartIcon.svg';
+import blackHeartIcon from '../images/blackHeartIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import shareIcon from '../images/shareIcon.svg';
 import '../Styles/RecipeInfos.css';
+import { setFavoritesRecipes, verifyFavoriteRecipe } from '../services/Favorite';
 
 function RecipesInfos() {
   const history = useHistory();
   const { location } = history;
   const [checked, setChecked] = useState([]);
+  const [colorHeart, setColorHeart] = useState('');
   const [ableButton, setAbleButton] = useState(true);
   const [linkCopy, setLinkCopy] = useState(false);
 
@@ -46,6 +47,18 @@ function RecipesInfos() {
     history.push('/done-recipes');
   }
 
+  function updateFavoriteRecipes() {
+    const color = setFavoritesRecipes(recipe);
+    setColorHeart(color);
+  }
+
+  useEffect(() => {
+    const color = verifyFavoriteRecipe(recipe);
+    setColorHeart(color);
+  }, [recipe]);
+
+  const heart = colorHeart === 'black' ? blackHeartIcon : whiteHeartIcon;
+
   return (
     <section className="recipe-info">
       <header>
@@ -62,10 +75,13 @@ function RecipesInfos() {
         <button
           type="button"
           data-testid="favorite-btn"
-          src={ whiteHeartIcon }
-        // onClick={ Função de favoritar a comida}
+          src={ heart }
+          onClick={ updateFavoriteRecipes }
         >
-          <img src={ whiteHeartIcon } alt="WhiteHeartIdon" />
+          <img
+            src={ heart }
+            alt={ heart }
+          />
         </button>
         <button
           type="button"
