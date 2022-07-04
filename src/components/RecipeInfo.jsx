@@ -29,7 +29,8 @@ function RecipesInfos() {
     .includes('strMeasure'));
 
   function copyRecipeLink() {
-    navigator.clipboard.writeText(`http://localhost:3000${location.pathname}`);
+    navigator.clipboard
+      .writeText(`http://localhost:3000${location.pathname.replace('/in-progress', '')}`);
     setLinkCopy(true);
   }
 
